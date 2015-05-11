@@ -7,6 +7,7 @@ public class RunAllTests {
         TestCalcPairwiseForce.main(args);
         TestCalcPairwiseForceXY.main(args);
         TestSetNetForce.main(args);
-    	//TestUpdate.main(args);
+    	TestUpdate.main(args);
+    	TestGetPlanet.main(args);
     }
 }

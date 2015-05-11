@@ -1,6 +1,5 @@
 package nbody;
 
-
 public class Planet {
 	public double x;
 	public double y;
@@ -68,10 +67,34 @@ public class Planet {
 				xNetForce += calcPairwiseForceX(planet);
 				yNetForce += calcPairwiseForceY(planet);
 			}						
+		}		
+	}
+	
+	public void setAcceleration(){
+		//sorry, photons can't play...
+		if(mass != 0){
+			xAccel = xNetForce / mass;
+			yAccel = yNetForce / mass;
 		}
 	}
 	
+	public void setVelocity(double dt){
+		xVelocity += dt * xAccel;
+		yVelocity += dt * yAccel;
+	}
+	
+	public void setPosition(double dt){
+		x += dt * xVelocity;
+		y += dt * yVelocity;
+	}
+	
 	public void update(double dt){
-		
+		setAcceleration();
+		setVelocity(dt);
+		setPosition(dt);
+	}
+	
+	public void draw(){
+		StdDraw.picture(x, y, img);
 	}
 }
