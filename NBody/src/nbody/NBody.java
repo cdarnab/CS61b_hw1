@@ -50,7 +50,7 @@ public class NBody {
 		p.x = in.readDouble();
 		p.y = in.readDouble();
 		p.xVelocity = in.readDouble();
-		p.yVelocity = 10000;//in.readDouble();
+		p.yVelocity = in.readDouble();
 		p.mass = in.readDouble();
 		p.img = "images/" + in.readString();		
 		

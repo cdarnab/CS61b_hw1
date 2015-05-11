@@ -62,7 +62,8 @@ public class Planet {
 		yNetForce = 0;
 		for(Planet planet: planets){
 			if(planet.x == this.x && planet.y == this.y){
-				return;
+				//do nothing, don't return, because then none of the
+				// other planets are considered.... oops
 			} else {
 				xNetForce += calcPairwiseForceX(planet);
 				yNetForce += calcPairwiseForceY(planet);
