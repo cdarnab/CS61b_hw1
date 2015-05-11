@@ -16,6 +16,7 @@ public class NBody {
         for(int i = 0; i < numPlanets; i++){
         	Planet p = NBody.getPlanet(in);
         	planets[i] = p;
+        	//System.out.println(p.x + " " + p.y + " " + p.xVelocity + " " + p.yVelocity + " " + p.mass + " " + p.img);
         }
         
         //create canvas, set scale
@@ -33,8 +34,10 @@ public class NBody {
             	p.setNetForce(planets);
             	p.update(dt);  
             	p.draw();
+            	//System.out.println(p.img.charAt(7) + " | " + p.xAccel + " | " + p.yAccel);
             }
 
+        	
         	StdDraw.show(10);
         }
         
@@ -47,16 +50,16 @@ public class NBody {
 		p.x = in.readDouble();
 		p.y = in.readDouble();
 		p.xVelocity = in.readDouble();
-		p.yVelocity = in.readDouble();
+		p.yVelocity = 10000;//in.readDouble();
 		p.mass = in.readDouble();
 		p.img = "images/" + in.readString();		
 		
-		System.out.println("x: " + p.x);
+		/*System.out.println("x: " + p.x);
 		System.out.println("y: " + p.y);
 		System.out.println("xV: " + p.xVelocity);
 		System.out.println("xV: " + p.yVelocity);
 		System.out.println("m: " + p.mass);
-		System.out.println("img: " + p.img);
+		System.out.println("img: " + p.img);*/
 		
 		return p;
 	}
