@@ -1,5 +1,8 @@
 package nbody;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class NBody {
 	
     public static void main(String[] args) {
@@ -24,9 +27,6 @@ public class NBody {
         StdDraw.setScale(-universeRadius, universeRadius);
         
         
-        
-
-        
         for(int i = 0; i < T; i += dt){
             StdDraw.picture(0, 0, "images/starfield.jpg");
         	
@@ -36,9 +36,21 @@ public class NBody {
             	p.draw();
             	//System.out.println(p.img.charAt(7) + " | " + p.xAccel + " | " + p.yAccel);
             }
-
         	
         	StdDraw.show(10);
+        }
+        
+        NumberFormat formatter = new DecimalFormat("0.####E0");
+        
+        System.out.println(numPlanets);
+        System.out.println(universeRadius);
+        for(Planet p : planets){
+        	System.out.println(formatter.format(p.x) + " " 
+        				     + formatter.format(p.y) + " " 
+        				     + formatter.format(p.xVelocity) + " " 
+        				     + formatter.format(p.yVelocity) + " " 
+        				     + formatter.format(p.mass) + " " 
+        				     + p.img.substring(7));
         }
         
          
